@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 18:55:40 by andcarva          #+#    #+#             */
-/*   Updated: 2024/08/28 19:13:48 by andcarva         ###   ########.fr       */
+/*   Created: 2024/08/28 13:37:54 by andcarva          #+#    #+#             */
+/*   Updated: 2024/08/28 19:14:50 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_iterative_factorial(int nb)
+int	ft_iterative_power(int nb, int power)
 {
 	int	result;
 	int	i;
 
 	result = 1;
-	i = 2;
-	if (nb < 0)
+	i = 0;
+	if (power < 0)
 		return (0);
-	while (i <= nb)
+	if (power == 0 && nb == 0)
+		return (1);
+	while (power > 0)
 	{
-		result *= i;
-		i++;
+		result *= nb;
+		power --;
 	}
 	return (result);
 }
@@ -32,11 +34,9 @@ int	ft_iterative_factorial(int nb)
 /*
 int	main(void)
 {
-	int	number;
-	int factorial;
-	
-	number = -3;
-	factorial = ft_iterative_factorial(number);
-	printf("factorial of %d is: %d\n ", number, factorial);
+	int nb = 2;
+	int power = 4;
+	int result = ft_iterative_power(nb, power);
+	printf("%d to the power of %d is: %d", nb, power, result);
 }
 */

@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 18:55:40 by andcarva          #+#    #+#             */
-/*   Updated: 2024/08/28 19:13:48 by andcarva         ###   ########.fr       */
+/*   Created: 2024/08/28 14:54:15 by andcarva          #+#    #+#             */
+/*   Updated: 2024/08/28 19:15:10 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_iterative_factorial(int nb)
+int	ft_recursive_power(int nb, int power)
 {
-	int	result;
-	int	i;
-
-	result = 1;
-	i = 2;
-	if (nb < 0)
+	if (power < 0)
 		return (0);
-	while (i <= nb)
-	{
-		result *= i;
-		i++;
-	}
-	return (result);
+	if (power == 0 && nb == 0)
+		return (1);
+	if (power == 0)
+		return (1);
+	if (nb == 0)
+		return (0);
+	return (nb * ft_recursive_power(nb, power - 1));
 }
 
 /*
 int	main(void)
 {
-	int	number;
-	int factorial;
-	
-	number = -3;
-	factorial = ft_iterative_factorial(number);
-	printf("factorial of %d is: %d\n ", number, factorial);
+	int	nb = 2;
+	int power = 4;
+	int result = ft_recursive_power(nb , power);
+	printf("%d to the power of %d is: %d", nb, power, result);
 }
 */
